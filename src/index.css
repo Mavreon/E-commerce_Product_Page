@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
   transition: all 0.15s ease-in;
+  text-decoration: none;
+  list-style: none;
+  color: black;
 }
 
 html {
@@ -21,5 +24,6 @@ body {
   body{
     width: 100vw;
     height: auto;
+    padding: 0 0 1rem 1rem;
   }
 }

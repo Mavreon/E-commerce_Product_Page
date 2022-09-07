@@ -1,0 +1,9 @@
+.wrapper{
+    width: auto;
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
