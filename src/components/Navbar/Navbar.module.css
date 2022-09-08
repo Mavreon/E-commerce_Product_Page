@@ -1,3 +1,14 @@
+:root{
+    --orange: hsl(26, 100%, 55%);
+    --pale-orange: hsl(25, 100%, 94%);
+    --very-dark-blue: hsl(220, 13%, 13%);
+    --dark-grayish-blue: hsl(219, 9%, 45%);
+    --grayish-blue: hsl(220, 14%, 75%);
+    --light-grayish-blue: hsl(223, 64%, 98%);
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+}
+
 .navbar{
     display: flex;
     flex-direction: row;
@@ -5,19 +16,12 @@
     justify-content: space-between;
     gap: 2rem;
     height: 12vh;
-    border-bottom: 2px solid lightgrey;
+    border-bottom: 1.4px solid var(--grayish-blue);
 }
 .navbar__btn{
-    font-size: 1rem;
-    width: 2rem;
+    display: none;
 }
-.navbar__logo{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3.2rem;
-}
+
 .navbar__btn img{
     width: 100%;
     height: 100%;
@@ -25,13 +29,24 @@
     align-items: center;
     justify-content: center;
 }
-
+.navbar__logo{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+.overlay{
+    display: none;
+}
 .navbar__links{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 3.6rem;
     height: 100%;
 }
 
@@ -44,5 +59,90 @@
 }
 
 .navbar__link:active, .navbar__link:hover{
-    box-shadow: inset 0 -2px orangered;
+    box-shadow: inset 0 -2px var(--orange);
+}
+
+.navbar__profile-image{
+    width: 5rem; 
+    border-radius: 50%;
+}
+
+.navbar__profile-image:hover, .navbar__profile-image:active{
+    border:3.6px solid var(--orange); 
+}
+
+
+@media (max-width: 500px) {
+    .navbar{
+        height: 10vh;
+        padding: 0 2.4rem;
+    }
+
+    .navbar__btn{
+        display: block;
+    }
+
+    .navbar__btn--active{
+        z-index: 10;
+        /* max-width: 2rem; */
+    }
+
+    .overlay--active{
+        display: block;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.5);
+        top: 0;
+        left:0;
+        animation: fadeIn 0.15s ease-in;
+    }
+    .navbar__links{
+        display: none;
+    }
+    .navbar__links--active{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 2rem;
+        position: absolute;
+        top: 0;
+        left:0;
+        height: 100vh;
+        width: 65vw;
+        background-color: white;
+        padding: 0 2.4rem;
+        padding-top: 11rem;
+        animation: moveInLeft 0.5s ease-in;
+    }
+
+    .navbar__link{
+        height: auto;
+    }
+
+    .navbar__link a{
+        font-weight: 700;
+    }
+   
+    .navbar__profile-image{
+        width: 2.8rem; 
+    }
+    @keyframes moveInLeft {
+        0%{
+            left: -1000px
+        }
+        100%{
+            left: 0;
+        }
+    }
+
+    @keyframes fadeIn {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 100;
+        }
+    }
 }
