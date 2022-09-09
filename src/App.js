@@ -1,6 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar/Navbar";
+import Cart from "./components/Cart/Cart";
+import CartContextProvider from "./context/CartContextProvider";
 
 function App() {
   return (
@@ -10,7 +12,9 @@ function App() {
         <title>E-commerce Product Page</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <Navbar/>
+      <CartContextProvider>
+        <Navbar/>
+      </CartContextProvider>
     </React.Fragment>
   );
 }

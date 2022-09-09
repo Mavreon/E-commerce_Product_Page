@@ -1,0 +1,21 @@
+.cartItem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.productImage{
+    width: 6rem;
+    border-radius: 1rem;
+}
+
+.productDescription{
+    display: flex;
+    flex-direction: column;
+}
+
+.iconDelete:hover{
+    filter:contrast(0);
+    cursor: pointer;
+}

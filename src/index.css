@@ -18,9 +18,10 @@ body {
   font-size: 1.6rem;
   max-width: 144rem;
   margin: 0 auto;
+  position: relative;
 }
 
-@media (max-width: 971px) {
+@media (max-width: 500px) {
   body{
     width: 100vw;
     height: auto;
