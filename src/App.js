@@ -1,8 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar/Navbar";
-import Cart from "./components/Cart/Cart";
 import CartContextProvider from "./context/CartContextProvider";
+import Product from "./components/Product/Product";
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
       </Helmet>
       <CartContextProvider>
         <Navbar/>
+        <Product/>
       </CartContextProvider>
     </React.Fragment>
   );

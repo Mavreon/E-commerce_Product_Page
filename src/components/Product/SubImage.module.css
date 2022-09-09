@@ -1,0 +1,12 @@
+.sub-image{
+    width: 100%;
+    height: 100%;
+    /* background-color: blueviolet; */
+    border-radius: 1.2rem;
+    overflow: hidden;
+}
+
+.sub-image img{
+    width: 100%;
+    height: 100%;
+}
