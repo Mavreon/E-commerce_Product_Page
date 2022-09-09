@@ -74,5 +74,15 @@
         align-items: center;
         justify-content: center;
         transform: translateX(0);
+        animation: MoveInFromTop 0.5s ease-in;
+        animation-fill-mode: forwards;
+    }
+    @keyframes MoveInFromTop {
+        0%{
+            top: 100rem;
+        }
+        100%{
+            top:9rem;
+        }
     }
 }
