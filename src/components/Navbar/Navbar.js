@@ -7,11 +7,13 @@ import iconClose from '../../images/icon-close.svg'
 import iconCart from '../../images/icon-cart.svg'
 import profileImage from '../../images/image-avatar.png'
 import Cart from '../Cart/Cart'
+// import Overlay from '../UI/Overlay'
 
 const Navbar = ()=>{
     const[navBtnIcon, setNavButtonIcon]= useState(iconMenu)
     const[navbtnClass, setnavBtnClass]= useState(`${styles['navbar__btn']}`)
-    const[overlayClass, setoverlayClass]= useState(`${styles['overlay']}`)
+    // const[overlayClass, setoverlayClass]= useState(`${styles['overlay']}`)
+    const[overlayClass, setoverlayClass]= useState('overlay')
     const[navLinksClass, setNavLinksClass]= useState(`${styles['navbar__links']}`)
     const[isMobileNavActive, setIsMobileNavActive] = useState(false)
     const[isCartActive, setIsCartActive] = useState(false)
@@ -24,6 +26,7 @@ const Navbar = ()=>{
             setNavButtonIcon(iconClose)
             setnavBtnClass(`${styles['navbar__btn--active']}`)
             setoverlayClass(`${styles['overlay--active']}`)
+            // setoverlayClass('overlay-active')
             setNavLinksClass(`${styles['navbar__links--active']}`)
         }
         // When navbar is inactive(Mobile)...
@@ -32,6 +35,7 @@ const Navbar = ()=>{
             setNavButtonIcon(iconMenu)
             setnavBtnClass(`${styles['navbar__btn']}`)
             setoverlayClass(`${styles['overlay']}`)
+            // setoverlayClass('overlay')
             setNavLinksClass(`${styles['navbar__links']}`)
         }
     }
@@ -48,6 +52,7 @@ const Navbar = ()=>{
                     <div className={navbtnClass} onClick={onClickNavBtnHandler}><img src={navBtnIcon} alt='Menu Icon'/></div>
                     <h1 className={`${styles['navbar__logo']}`}>sneakers</h1>
                 </Wrapper>
+                {/* <Overlay className={overlayClass}/> */}
                 <div className={overlayClass}/>
                 <ul className={navLinksClass}>
                     <li className={`${styles['navbar__link']}`}><a href='#'>Collections</a></li>
