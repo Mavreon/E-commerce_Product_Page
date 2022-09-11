@@ -7,9 +7,10 @@ const CartItem=(props)=>{
         <div className={styles.cartItem}>
             <img className={styles.productImage} src={props.data.productImage} alt="Product"/>
             <p className={styles.productDescription}>
-                {props.data.productDescription}
+                {props.data.productTitle}
                 <span>
-                    {`$${(props.data.productUnitPrice).toFixed(2)} x ${props.data.productCount}`} <b>{`$${(props.data.productUnitPrice * props.data.productCount).toFixed(2)}`}</b>
+                    {`$${(props.data.productPrice).toFixed(2)} x ${props.data.productCount}`} 
+                    <b>{`$${(props.data.productPrice * props.data.productCount).toFixed(2)}`}</b>
                 </span>
             </p>
             <img className={styles.iconDelete} src={iconDelete} alt="Delete Icon"/>

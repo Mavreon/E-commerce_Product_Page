@@ -14,7 +14,7 @@ function App() {
       </Helmet>
       <CartContextProvider>
         <Navbar/>
-        {/* <Product/> */}
+        <Product/>
       </CartContextProvider>
     </React.Fragment>
   );

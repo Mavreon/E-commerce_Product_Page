@@ -1,39 +1,49 @@
 import React,{useState} from "react";
 import styles from './ProductImageBox.module.css'
-import product1 from '../../images/image-product-1.jpg'
-import product2 from '../../images/image-product-2.jpg'
-import product3 from '../../images/image-product-3.jpg'
-import product4 from '../../images/image-product-4.jpg'
-// import productThumbnail1 from '../../images/image-product-1-thumbnail.jpg'
-// import productThumbnail2 from '../../images/image-product-2-thumbnail.jpg'
-// import productThumbnail3 from '../../images/image-product-3-thumbnail.jpg'
-// import productThumbnail4 from '../../images/image-product-4-thumbnail.jpg'
 import SubImageList from "./SubImageList";
+import nextIcon from '../../images/icon-next.svg'
+import previousIcon from '../../images/icon-previous.svg'
 
-const ProductImageBox = ()=>{
-    const productImageList = [
-        product1,
-        product2,
-        product3,
-        product4,
-    ]
-    // const productImageThumbnailList = [
-    //     productThumbnail1,
-    //     productThumbnail2,
-    //     productThumbnail3,
-    //     productThumbnail4
+const ProductImageBox = (props)=>{
+    // const productImageList = [
+    //     product1,
+    //     product2,
+    //     product3,
+    //     product4,
     // ]
     const [mainImageIndex, setMainImageIndex]=useState(0)
+    const nextBtnClickHandler = ()=>{
+        console.log('clicked')
+        if(mainImageIndex < props.productImageList.length-1)
+        {
+            setMainImageIndex((prevIndex)=> ++prevIndex)
+        }
+    }
+    const prevBtnClickHandler = ()=>{
+        if(mainImageIndex > 0)
+        {
+            setMainImageIndex((prevIndex)=> --prevIndex)
+        }
+    }
     return(
         <div className={styles['product-image-section']}>
-            <div className={styles.container}>
-                <div className={styles['main-image']}>
-                    <img src={productImageList[mainImageIndex]} alt='Sneakers'/>
+            <div className={styles['main-image']}>
+                <div 
+                className={styles['next-btn']} 
+                onClick={nextBtnClickHandler}>
+                    <img src={nextIcon} alt='Next Icon'/>
                 </div>
-                <SubImageList 
-                data={productImageList} 
-                setMainImageIndex = {setMainImageIndex}/>
+                <img src={props.productImageList[mainImageIndex]} alt='Sneakers'/>
+                <div 
+                className={styles['previous-btn']} 
+                onClick={prevBtnClickHandler}>
+                    <img src={previousIcon} alt='Previous Icon'/>
+                </div>
             </div>
+            <SubImageList 
+            data={props.productImageList} 
+            setMainImageIndex = {setMainImageIndex}
+            />
         </div>
     )
 }

@@ -1,36 +1,60 @@
-import React from "react";
+import React,{useState,useContext} from "react";
 import styles from './ProductInfo.module.css'
 import plusIcon from '../../images/icon-plus.svg'
 import minusIcon from '../../images/icon-minus.svg'
 import cartIcon from '../../images/icon-cart.svg'
+import CartContext from "../../context/cart-context";
 
-const ProductInfo=()=>{
+const ProductInfo=(props)=>{
+    const productData = props.productData
+    const ctx = useContext(CartContext)
+    const [amount, setAmount] = useState(1)
+    const increaseBtnClickHandler = ()=>{
+        setAmount((prevIndex)=> ++prevIndex)
+    }
+    const decreaseBtnClickHandler = ()=>{
+        if(amount > 1)
+        {
+            setAmount((prevIndex)=> --prevIndex)
+        }
+    }
+    const onClickAddToCart = ()=>{
+        console.log('Added to cart')
+        const cartData = {
+            productKey: Math.random(),
+            productImage : productData.images[0],
+            productTitle : `${productData.title} Sneakers`,
+            productCount : amount,
+            productPrice : productData.unitPrice * (productData.percentOff/100)
+        }
+        ctx.addNewItem(cartData);
+    }
     return(
         <div className={styles['product__info-container']}>
-            <span className={styles['product-company']}>Sneaker Company</span>
+            <span className={styles['product-company']}>{productData.company}</span>
             <h2 className={styles['product-title']}>
-                Fall Limited Edition
+                {productData.title}
                 <span>Sneakers</span>
             </h2>
             <p className={styles['product-summary']}>
-                These low-profile sneakers are perfect casual wear
-                companion. Featuring a durable rubber outer sole, they'll
-                withstand everything the weather can offer.
+               {productData.summary}
             </p>
             <div className={styles['pricing-details']}>
                 <span className={styles['current-price']}>
-                    $125.00
-                    <span className={styles['discount']}>50%</span>
+                    {`$${(productData.unitPrice * (productData.percentOff/100)).toFixed(2)}`}
+                    <span className={styles['discount']}>{`${productData.percentOff}%`}</span>
                 </span>
-                <span className={styles['original-price']}>$250</span>
+                <span className={styles['original-price']}>
+                {`$${(productData.unitPrice).toFixed(2)}`}
+                </span>
             </div>
             <div className={styles['modify-section']}>
                 <div className={styles.counter}>
-                    <img src={minusIcon} alt='Minus Icon'/>
-                    <p>0</p>
-                    <img src={plusIcon} alt='Plus Icon'/>
+                    <img src={minusIcon} alt='Minus Icon' onClick={decreaseBtnClickHandler}/>
+                    <p className={styles['amount-input']}>{amount}</p>
+                    <img src={plusIcon} alt='Plus Icon' onClick={increaseBtnClickHandler}/>
                 </div>
-                <button className={styles['add-btn']}>
+                <button className={styles['add-btn']} onClick={onClickAddToCart}>
                     <img src={cartIcon} alt='Cart Icon'/>
                     Add to cart
                 </button>

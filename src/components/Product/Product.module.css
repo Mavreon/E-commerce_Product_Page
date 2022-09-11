@@ -10,3 +10,12 @@
     
 }
 
+@media (max-width: 500px) {
+    .product{
+        flex-direction: column;
+        height: 100%;
+        padding: 0;
+        gap: 0;
+    }
+}
+
