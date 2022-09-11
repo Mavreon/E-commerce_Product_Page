@@ -57,6 +57,10 @@
     cursor: pointer;
 }
 
+.close-btn:hover{
+    filter: contrast(100);
+}
+
 .checkoutBtn:active, .checkoutBtn:hover{
     filter:contrast(12);
 }

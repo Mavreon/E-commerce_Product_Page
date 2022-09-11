@@ -1,4 +1,4 @@
-import React,{useState, Fragment} from "react";
+import React,{useState} from "react";
 import ReactDOM from "react-dom"
 import styles from './Lightbox.module.css'
 import SubImageList from "../Product/SubImageList";

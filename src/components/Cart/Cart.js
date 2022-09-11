@@ -2,6 +2,7 @@ import React,{useContext} from "react"
 import styles from './Cart.module.css'
 import CartItem from "./CartItem"
 import CartContext from "../../context/cart-context"
+import closeIcon from '../../images/icon-close.svg'
 
 const Cart = (props)=>{
     const ctx = useContext(CartContext)
@@ -14,7 +15,7 @@ const Cart = (props)=>{
                 <p className={styles.header}>
                     Cart
                     <span className={styles['close-btn']} onClick={onClickCloseBtn}>
-                        X
+                        <img src={closeIcon} alt='Next Icon'/>
                     </span>
                 </p>
                 <div className={styles.cartListBox}>
