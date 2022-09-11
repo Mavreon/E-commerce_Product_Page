@@ -50,17 +50,15 @@
     color: white;
     background-color: var(--orange);
     font-weight: 700;
+    cursor: pointer;
 }
 .close-btn{
     color: var(--orange);
     cursor: pointer;
 }
-.checkoutBtn:hover{
-    box-shadow: 0 0 0.25px 5px rgba(0,0,0,0.2);
-}
 
-.checkoutBtn:active{
-    box-shadow: 0 0 0.15px 2.5px rgba(0,0,0,0.2);
+.checkoutBtn:active, .checkoutBtn:hover{
+    filter:contrast(12);
 }
 
 @media (max-width: 500px) {

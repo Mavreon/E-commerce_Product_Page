@@ -1,9 +1,4 @@
 .overlay{
-    display: none;
-}
-
-.overlay-active{
-    display: block;
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -11,7 +6,7 @@
     top: 0;
     left:0;
     animation: fadeIn 0.15s ease-in;
-    z-index: 3;
+    z-index: 0;
 }
 
 @keyframes fadeIn {
@@ -20,5 +15,11 @@
     }
     100%{
         opacity: 100;
+    }
+}
+
+@media (max-width: 500px) {
+    .overlay{
+        display: none;
     }
 }

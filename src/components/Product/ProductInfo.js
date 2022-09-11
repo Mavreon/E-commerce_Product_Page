@@ -19,15 +19,15 @@ const ProductInfo=(props)=>{
         }
     }
     const onClickAddToCart = ()=>{
-        console.log('Added to cart')
+        // console.log('Added to cart')
         const cartData = {
-            productKey: Math.random(),
             productImage : productData.images[0],
             productTitle : `${productData.title} Sneakers`,
             productCount : amount,
             productPrice : productData.unitPrice * (productData.percentOff/100)
         }
         ctx.addNewItem(cartData);
+        setAmount(1)
     }
     return(
         <div className={styles['product__info-container']}>
@@ -50,9 +50,9 @@ const ProductInfo=(props)=>{
             </div>
             <div className={styles['modify-section']}>
                 <div className={styles.counter}>
-                    <img src={minusIcon} alt='Minus Icon' onClick={decreaseBtnClickHandler}/>
+                    <img className={styles['minus-icon']} src={minusIcon} alt='Minus Icon' onClick={decreaseBtnClickHandler}/>
                     <p className={styles['amount-input']}>{amount}</p>
-                    <img src={plusIcon} alt='Plus Icon' onClick={increaseBtnClickHandler}/>
+                    <img className={styles['plus-icon']} src={plusIcon} alt='Plus Icon' onClick={increaseBtnClickHandler}/>
                 </div>
                 <button className={styles['add-btn']} onClick={onClickAddToCart}>
                     <img src={cartIcon} alt='Cart Icon'/>

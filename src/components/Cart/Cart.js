@@ -1,8 +1,7 @@
-import React,{useContext, useState} from "react";
+import React,{useContext} from "react"
 import styles from './Cart.module.css'
 import CartItem from "./CartItem"
-import CartContext from "../../context/cart-context";
-import closeIcon from '../../images/icon-plus.svg'
+import CartContext from "../../context/cart-context"
 
 const Cart = (props)=>{
     const ctx = useContext(CartContext)
@@ -21,7 +20,7 @@ const Cart = (props)=>{
                 <div className={styles.cartListBox}>
                 <div className={styles.cartList}>
                     {ctx.cartList.length <= 0 && <p>Your cart is empty.</p>}
-                    {ctx.cartList.length > 0 && ctx.cartList.map( data => <CartItem key={data.productKey} data = {data}/>)}
+                    {ctx.cartList.length > 0 && ctx.cartList.map( data => <CartItem key={data.itemID} data = {data}/>)}
                 </div>
                 {ctx.cartList.length > 0 &&<button className={styles.checkoutBtn}>Checkout</button>}
                 </div>

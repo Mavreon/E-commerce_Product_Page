@@ -1,8 +1,8 @@
-import React from "react";
+import React,{ReactDOM} from "react";
 import styles from './Overlay.module.css'
 
-const Overlay=(props)=>{
-    return <div className={styles[props.className]}  />
+const Overlay=()=>{
+    return <div className={styles['overlay']}/>
 }
 
 export default Overlay

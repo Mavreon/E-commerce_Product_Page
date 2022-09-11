@@ -27,6 +27,9 @@ body {
   margin: 0;
   font-family: 'Kumbh Sans', sans-serif;
   font-size: 1.6rem;
+}
+
+#root{
   max-width: 144rem;
   margin: 0 auto;
   position: relative;
